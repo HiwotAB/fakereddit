@@ -11,23 +11,10 @@
 <header class="masthead">
     <div class="header-content">
         <div class="header-content-inner">
-            <form class="well form-horizontal"
-                  th:action="@{/search/{userName} (username=${searchUser.userName})}"
-                  th:object="${searchUser}"
-                  method="">
-                <legend>Search Name</legend>
+            <form class="well form-horizontal" action="#" th:action="@{/enterSearch}" method="post">
 
-                <!--UserName-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                            <input th:type="text" th:field="*{searchUser.userName}" placeholder="userName"/>
-                        <!--Might have to add default url to validate -->
-                        </div>
-                    </div>
-                </div>
-
+                <label>User Name: </label>
+                <input type="text" name="searchName"/>
 
                 <!--buttons-->
                 <div class="form-group">
