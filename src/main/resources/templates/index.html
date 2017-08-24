@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Creative - Start Bootstrap Theme</title>
+
+
+    <th:block th:replace="base::header"></th:block>
+</head>
+<body>
+<th:block th:replace="base::nav"></th:block>
+    <header class="masthead">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Welcome To Reddit Application</h1>
+                <hr>
+                <h1><a href="/addLink">Add Link</a></h1>
+                <h1><a href="/showLinks">Show All Links</a></h1>
+
+            </div>
+        </div>
+    </header>
+    <!-- Bootstrap core JavaScript -->
+    <th:block th:replace="base::script"></th:block>
+
+</body>
+</html>

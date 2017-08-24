@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:replace="base::header"></th:block>
+    <title>Link Form</title>
+</head>
+<body>
+<th:block th:replace="base::nav"></th:block>
+
+<header class="masthead">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <form class="well form-horizontal"
+                  th:action="@{/search/{userName} (username=${searchUser.userName})}"
+                  th:object="${searchUser}"
+                  method="">
+                <legend>Search Name</legend>
+
+                <!--UserName-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <input th:type="text" th:field="*{searchUser.userName}" placeholder="userName"/>
+                        <!--Might have to add default url to validate -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--buttons-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <button type="submit" class="btn btn-primary">Search Name</button>
+                        <button type="reset"  class="btn btn-primary">Clear Form</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</header>
+    <th:block th:replace="base::script"></th:block>
+
+</body>
+</html>

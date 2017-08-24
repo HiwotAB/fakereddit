@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:replace="base::header"></th:block>
+    <title>show all Link list</title>
+</head>
+<body>
+<th:block th:replace="base::nav"></th:block>
+<div class="container">
+    <table class="table table-striped" class="table table-hover">
+        <caption> <h4><b> Links Information</b></h4></caption>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Link</th>
+            <th>User Name</th>
+            <th>Time Stamp</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="links : ${allLink}">
+            <td th:text="${links.title}"></td>
+            <td th:href="${links.myLink}"></td>
+            <td th:text="${links.userName}"></td>
+            <td th:text="${links.timestamp}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${links.id})}">Update</a>
+                <a th:href="@{/delete/{id}(id=${links.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<th:block th:replace="base::script"></th:block>
+</body>
+</html>

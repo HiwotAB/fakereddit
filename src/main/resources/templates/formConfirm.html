@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:replace="base::header"></th:block>
+    <title>Link Confirmation</title>
+</head>
+<body>
+
+
+
+
+
+<th:block th:replace="base::nav"></th:block>
+
+<header class="masthead">
+    <div class="header-content">
+        <div class="header-content-inner">
+
+            <form class="well form-horizontal"
+                  action="#"
+                  th:action="@{/addLink}"
+                  method=""
+                  th:object="${aLink}">
+                <legend>Add a Link</legend>
+
+
+                <input type="hidden" th:field="*{id}"/>
+                <!--Title-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <p th:text="*{title}"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--link-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <p th:text="*{myLink}"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--UserName-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <p th:text="*{userName}"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--timestanp this will become redundant when we figure out how to get it from the DB-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <p th:text="*{timestamp}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--buttons-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <p>
+                            <a href="/addLink"><strong>Add More Link</strong></a> <br />
+                            <a th:href="@{/update/{id} (id=${aLink.id})}"><strong>Update Link</strong></a> <br />
+                            <a href="/showLinks">Show All Links</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+<th:block th:replace="base::script"></th:block>
+</body>
+</html>

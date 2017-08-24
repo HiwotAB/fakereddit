@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:replace="base::header"></th:block>
+    <title>Show All Links</title>
+</head>
+<body>
+<th:block th:replace="base::nav"></th:block>
+
+
+<header class="masthead">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <div th:each="i : ${allLink}">
+                <div class="form-group">
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <a th:href="${i.myLink}"><p th:text="${i.title}"></p></a>
+                            <p th:inline="text">Submitted by: [[${i.userName}]]</p>
+                            <p th:text="${i.timestamp}"></p>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/update/{id} (id=${i.id})}"><strong>Update Link</strong></a>-
+                <a th:href="@{/delete/{id} (id=${i.id})}"><strong>Delete Link</strong></a>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+
+
+<th:block th:replace="base::script"></th:block>
+</body>
+</html>
